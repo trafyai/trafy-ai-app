@@ -1,0 +1,110 @@
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: var(--trafy-white);
+    /* background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px); */
+    z-index: 1000; /* Ensure the navbar stays on top */
+}
+.navbar-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-logo{
+    display: flex;
+    align-items: center;
+}
+.navbar-logo img{
+    height: 28px;
+    width: auto;
+}
+.navbar-contents{
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+.navbar-research ,.navbar-academy, .navbar-resources,
+.navbar-community{
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--p-black);
+    font-family: var(--h-font);
+}
+.navbar-research:hover ,.navbar-academy:hover, .navbar-resources:hover,
+.navbar-community:hover{
+    color: var(--h-black);
+}
+.navbar-button{
+    padding: 8px 18px;
+    width: max-content;
+    height: max-content;
+    border: 1px solid var(--h-black);
+    border-radius: 8px;
+    background-color: var(--h-black);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--h-white);
+    font-family: var(--h-font);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.navbar-contents-menu,  .navbar-contents-drop{
+    display: none;
+}
+
+@media only screen and (max-width:850px){
+    .navbar-contents{
+        display: none;
+    }
+    .navbar-contents-menu{
+        display: block;
+    }
+    .navbar-contents-drop{
+        display: none;
+    }
+    .navbar-contents-drop.open{
+        padding-top: 1.5rem;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: var(--trafy-white);
+        z-index: 1000;
+ 
+            /* backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+          
+          
+    }
+    .navbar-contents-mobile{
+        padding-left: 5px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+    }
+    .navbar-research ,.navbar-academy, .navbar-resources,
+.navbar-community{
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--h-black);
+    font-family: var(--h-font);
+}
+}
