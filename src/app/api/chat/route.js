@@ -14,14 +14,17 @@ export async function POST(request) {
       );
     }
 
+    // Instruction for the chatbot
+    const instruction = "You are an AI assistant designed to provide helpful, accurate, and concise responses. You can answer questions, generate content, provide explanations, and assist with various topics, including technology, science, business, coding, and daily life. Keep responses user-friendly and avoid unnecessary complexity. If a question is unclear, ask for clarification. If something is beyond your knowledge, respond honestly rather than making up information. Maintain a polite, professional, and engaging tone.";
+
     // Try the primary model first
     let responseMessage;
     try {
-      responseMessage = await generateResponse(message, 'gemma2-9b-it');
+      responseMessage = await generateResponse(instruction, message, 'gemma-2b-9bit');
 
     } catch (error) {
       console.warn('Primary model failed, switching to fallback model:', error);
-      responseMessage = await generateResponse(message, 'llama-3.3-70b-versatile');
+      responseMessage = await generateResponse(instruction, message, 'llama-3.3-70b-versatile');
     }
 
     return NextResponse.json({ response: responseMessage });
@@ -35,9 +38,13 @@ export async function POST(request) {
 }
 
 // Helper function to call the Groq API with a specified model
-async function generateResponse(message, model) {
+async function generateResponse(instruction, message, model) {
   const chatCompletion = await groq.chat.completions.create({
     messages: [
+      {
+        role: 'system',
+        content: instruction,
+      },
       {
         role: 'user',
         content: message,
@@ -48,6 +55,7 @@ async function generateResponse(message, model) {
 
   return chatCompletion.choices[0]?.message?.content || 'No response';
 }
+
 
 // import { NextResponse } from "next/server";
 // import Groq from "groq-sdk";

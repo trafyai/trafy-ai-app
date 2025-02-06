@@ -1,18 +1,22 @@
 .trafy-chat{
-  padding: 90px 0px;
+  flex: 1; 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  position: relative;
+  overflow-y: auto;
 }
 .trafy-chat-container{
-  width: 78%;
+  padding-top: 2rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
 }
+
 .trafy-chat-msg-container {
-  width: 100%;
+  width: 80%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -20,40 +24,81 @@
 }
 
 .tc-msgs {
-  padding: 12px;
-  border: 1px solid var(--box-border);
-  border-radius: 12px;
-  font-family: var(--p-font);
+  padding: 4px 18px;
+  border-radius: 18px;
+  font-family: var(--h-font);
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
   width: 100%;
-  /* Set common alignment */
-  align-self: flex-start; /* Default for AI messages */
+  align-self: flex-start; 
 }
 
 .tc-msgs.user {
-  align-self: flex-end; /* Align user messages to the right */
-  background-color: var(--trafy-grey); /* Optional: Change background for user messages */
+  align-self: flex-end; 
+  background-color: var(--trafy-grey);
   width: max-content;
   max-width: 75%;
 }
 
 .tc-msgs.bot {
-  align-self: flex-start; /* Ensure AI messages stay on the left */
-  background-color: var(--bot-background); /* Optional: Change background for bot messages */
+  align-self: flex-start; 
+  background-color: var(--bot-background); 
   padding: 0px;
   border: 0px;
 }
-
+.tc-msgs h1,.tc-msgs h2,
+.tc-msgs h3,.tc-msgs h4,
+.tc-msgs h5{
+  font-size: 20px;
+  font-family: var(--h-font);
+  color: var(--h-black);
+  font-weight: 600;
+  line-height: 140%;
+}
+.tc-msgs p{
+  font-size: 16px;
+  font-family: var(--h-font);
+  color: var(--p-black);
+  font-weight: 400;
+  line-height: 160%;
+  margin: 0.5rem 0px;
+}
+.tc-msgs p strong{
+  font-size: 16px;
+  font-family: var(--h-font);
+  color: var(--h-black);
+  font-weight: 600;
+  line-height: 140%;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+.tc-msgs ul, .tc-msgs ol{
+  padding-left: 1.25rem;
+}
+.tc-msgs li{
+  margin: 0.5rem 0rem;
+  font-size: 16px;
+  font-family: var(--h-font);
+  color: var(--p-black);
+  font-weight: 400;
+  line-height: 140%;
+}
+.tc-msgs li strong{
+  font-size: 16px;
+  font-family: var(--h-font);
+  color: var(--h-black);
+  font-weight: 500;
+  line-height: 140%;
+}
 .trafy-chat-prompt{
-  width: 100%;
+  width: 100%; 
+  position: sticky; 
+  bottom: 0;
+  background-color: var(--trafy-white);
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 0px;
-  background-color: var(--trafy-white);
+  padding: 10px 0;
 }
 .trafy-chat-prompt-input{
   width: 80%;
@@ -107,3 +152,4 @@
     width: 92%;
   }
 }
+

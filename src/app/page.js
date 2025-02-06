@@ -1,9 +1,9 @@
 import Image from "next/image";
-import ChatAi from "@components/trafy-chat-ai/ChatAi";
+import TrafyAi from "@components/trafy-chat-ai/TrafyAi";
 export default function Home() {
   return (
    <>
-   <ChatAi/>
+   <TrafyAi/>
    </>
   );
 }
