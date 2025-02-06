@@ -55,6 +55,9 @@ align-items: center;
 padding-top: 4px;
 padding-bottom: 12px;
 }
+.tc-msgs-events img{
+  cursor: pointer;
+}
 .tc-msgs h1,.tc-msgs h2,
 .tc-msgs h3,.tc-msgs h4,
 .tc-msgs h5{
