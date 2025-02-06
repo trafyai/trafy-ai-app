@@ -192,6 +192,8 @@ import { usePathname } from 'next/navigation';
 import '@styles/trafy-chat-ai/ChatDashboard.css';
 import Image from 'next/image';
 import logo from '@public/assets/images/navbar/trafy-black-logo.png';
+import newChat from '@public/assets/images/dashboard/new-chat.svg';
+import arrow from '@public/assets/images/dashboard/arrow.svg';
 
 const INITIAL_VISIBLE_CHATS = 8; 
 
@@ -250,7 +252,9 @@ const ChatDashboard = () => {
             <Image src={logo} alt="Logo"/>
         </div>
         <div className="chat-dashboard-new-chat">
-          <Link href='/'>New Chat</Link>
+          <Link href='/'>
+          <Image src={newChat} width={16} height={16} alt='new chat'/>
+          New Chat</Link>
         </div>
 
         <div className="chat-dashboard-recents">
@@ -268,9 +272,10 @@ const ChatDashboard = () => {
             ))}
           </div>
           {visibleChats < recentChats.length && (
-            <button className="view-more-btn" onClick={showMoreChats}>
+            <div className="char-dashboard-view-more-btn" onClick={showMoreChats}>
+              <Image src={arrow} width={16} height={16}/>
               View More
-            </button>
+            </div>
           )}
         </div>
 
