@@ -377,7 +377,7 @@ const ChatDashboard = () => {
           <Image src={newChat} width={16} height={16} alt='new chat'/>
           New Chat</Link>
         </div>
-
+{/* 
         <div className="chat-dashboard-recents">
           <h3>Recent Chats</h3>
           <div className='chat-dashboard-recents-contents'>
@@ -398,7 +398,30 @@ const ChatDashboard = () => {
               View More
             </div>
           )}
-        </div>
+        </div> */}
+        {recentChats.length > 0 && (
+  <div className="chat-dashboard-recents">
+    <h3>Recent Chats</h3>
+    <div className='chat-dashboard-recents-contents'>
+      {recentChats.slice(0, visibleChats).map(chat => (
+        <Link 
+          key={chat.id} 
+          href={`/chat/${chat.id}`} 
+          className={`chat-link ${chat.id === currentChatId ? "active" : ""}`}
+        >
+          {chat.title}
+        </Link>
+      ))}
+    </div>
+    {visibleChats < recentChats.length && (
+      <div className="char-dashboard-view-more-btn" onClick={showMoreChats}>
+        <Image src={arrow} width={16} height={16} alt='view more'/>
+        View More
+      </div>
+    )}
+  </div>
+)}
+
 
         {/* User Account Section */}
         <div className="chat-dashboard-account">

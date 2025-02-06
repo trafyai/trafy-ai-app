@@ -135,6 +135,19 @@ padding-bottom: 12px;
 .trafy-chat-prompt-input input:focus{
   outline: none;
 }
+.trafy-chat-send-btn{
+  width: 36px;
+  height: 34px;
+  border-radius: 32%;
+  background-color: var(--trafy-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.trafy-chat-send-btn.change{
+  background-color: var(--box-border);
+}
 .trafy-chat-prompt-input button{
   padding: 14px 42px;
   height: auto;

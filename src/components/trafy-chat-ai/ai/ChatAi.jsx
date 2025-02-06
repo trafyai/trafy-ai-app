@@ -10,6 +10,7 @@ import { ref, set, get, serverTimestamp, update } from 'firebase/database';
 import Image from 'next/image';
 import copy from '@public/assets/images/dashboard/copy.svg';
 import refresh from '@public/assets/images/dashboard/refresh.svg';
+import arrow from '@public/assets/images/ai/arrow-up.svg';
 
 const Chatbot = ({ chatId }) => {
     const [messages, setMessages] = useState([]);
@@ -159,9 +160,48 @@ const Chatbot = ({ chatId }) => {
         const date = new Date(timestamp);
         return date.toLocaleTimeString();
     };
+    // const refreshMessage = async (index) => {
+    //     if (!messages.length || !user) return;
+    
+    //     // Find the last user message before the bot message at `index`
+    //     const userMessageIndex = messages.slice(0, index).reverse().findIndex(msg => msg.role === "user");
+    //     if (userMessageIndex === -1) return; // No user message found before the bot message
+    
+    //     const actualUserMessageIndex = index - userMessageIndex - 1;
+    //     const userMessage = messages[actualUserMessageIndex];
+    
+    //     // Remove all messages after the selected bot message
+    //     const updatedMessages = messages.slice(0, actualUserMessageIndex + 1);
+    
+    //     setMessages(updatedMessages);
+    
+    //     try {
+    //         const response = await fetch('/api/chat', {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({ message: userMessage.content }),
+    //         });
+    
+    //         const data = await response.json();
+    //         const refreshedBotMessage = {
+    //             role: "bot",
+    //             content: data.response || "Something went wrong.",
+    //             timestamp: serverTimestamp(),
+    //         };
+    
+    //         setMessages([...updatedMessages, refreshedBotMessage]);
+    //         await saveChatToDatabase(chatId, [...updatedMessages, refreshedBotMessage]);
+    //         await generateChatTitle(chatId, [...updatedMessages, refreshedBotMessage]);
+
+    //     } catch (error) {
+    //         console.error("Error refreshing content:", error);
+    //         setMessages([...updatedMessages, { role: "bot", content: "Error refreshing message." }]);
+    //     }
+    // };
     const refreshMessage = async (index) => {
         if (!messages.length || !user) return;
-    
+        setLoading(true); // Start loading state
+
         // Find the last user message before the bot message at `index`
         const userMessageIndex = messages.slice(0, index).reverse().findIndex(msg => msg.role === "user");
         if (userMessageIndex === -1) return; // No user message found before the bot message
@@ -171,7 +211,6 @@ const Chatbot = ({ chatId }) => {
     
         // Remove all messages after the selected bot message
         const updatedMessages = messages.slice(0, actualUserMessageIndex + 1);
-    
         setMessages(updatedMessages);
     
         try {
@@ -188,13 +227,15 @@ const Chatbot = ({ chatId }) => {
                 timestamp: serverTimestamp(),
             };
     
-            setMessages([...updatedMessages, refreshedBotMessage]);
+            // Use simulateTyping instead of directly setting the message
+            simulateTyping(refreshedBotMessage.content, refreshedBotMessage);
+    
             await saveChatToDatabase(chatId, [...updatedMessages, refreshedBotMessage]);
             await generateChatTitle(chatId, [...updatedMessages, refreshedBotMessage]);
-
+    
         } catch (error) {
             console.error("Error refreshing content:", error);
-            setMessages([...updatedMessages, { role: "bot", content: "Error refreshing message." }]);
+            simulateTyping("Error refreshing message.", { role: "bot", content: "Error refreshing message." });
         }
     };
     
@@ -228,9 +269,10 @@ const Chatbot = ({ chatId }) => {
                             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
                             placeholder="Type your message..."
                         />
-                        <button onClick={sendMessage} disabled={loading}>
-                            {loading ? "Typing..." : "Generate"}
-                        </button>
+                        <div className={`trafy-chat-send-btn ${loading ? 'change' : ''}`} onClick={sendMessage}>
+                            <Image src={arrow} alt='arrow'/>
+                        </div>
+
                     </div>
                 </div>
             </div>
