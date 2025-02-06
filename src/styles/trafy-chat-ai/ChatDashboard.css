@@ -109,11 +109,43 @@ border-radius: 8px;
     align-items: center;
 }
 .chat-dashboard-account{
+    width: 100%;
     position: absolute;
     bottom: 0;
     padding: 20px;
 }
-
+.chat-dashboard-account-container{
+    padding: 10px 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dfdfdf;
+}
+.chat-dashboard-account-contents{
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+.chat-dashboard-account-profile{
+    width: 32px;
+    height: 32px;
+    background-color: var(--trafy-black);
+    font-size: 14px;
+    font-family: var(--h-font);
+    color: var(--h-white);
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.chat-dashboard-account-email{
+    font-size: 14px;
+    font-family: var(--h-font);
+    color: var(--h-black);
+    font-weight: 400;
+}
 
 
 

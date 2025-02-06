@@ -98,7 +98,7 @@ export async function POST(request) {
 
     // Ensure title is valid and formatted
     title = title.replace(/["'\n]/g, '').trim(); // Remove quotes or newlines
-    if (!title || title.length > 50) title = 'Untitled Chat'; // Fallback if response is invalid
+    if (!title || title.length > 50) title = 'New Chat'; // Fallback if response is invalid
 
     return NextResponse.json({ title });
   } catch (error) {
