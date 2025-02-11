@@ -22,7 +22,18 @@ import { RiMenu4Fill } from "react-icons/ri";
 const TrafyAi = ({chatId}) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-
+  useEffect(() => {
+    const adjustHeight = () => {
+      const viewportHeight = window.innerHeight;
+      document.querySelector('.trafy-ai-component').style.height = `${viewportHeight}px`;
+    };
+  
+    adjustHeight();
+    window.addEventListener('resize', adjustHeight);
+  
+    return () => window.removeEventListener('resize', adjustHeight);
+  }, []);
+  
 
 
   const handleMenuOpen = () =>{

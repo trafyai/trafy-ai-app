@@ -36,11 +36,15 @@
       box-sizing: border-box;
       text-decoration: none;
     }
-    
+    html{
+      height: 100%; 
+
+    }
     body {
       margin: 0;
       overflow-y: scroll;
       overflow: hidden;
+      height: 100%; 
     }
 
     .theme-change-button .light-theme {

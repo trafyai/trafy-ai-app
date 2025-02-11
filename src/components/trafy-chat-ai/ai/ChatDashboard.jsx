@@ -108,23 +108,24 @@ const ChatDashboard = ({ menuOpen, setMenuOpen }) => {
         )}
         {/* User Account Section */}
 
-        {/* <div className='chat-dashboard-settings'>
-          <div className='chat-dashboard-settings-container'>
-            <div className='chat-dashboard-settings-theme'>
-                <p>Theme</p>
-                <div className='settings-theme-indicator'>
-                  <span className='settings-theme-indicator-light'></span>
-                  <span className='settings-theme-indicator-dark'></span>
-                </div>
-            </div>
-            <div className='chat-dashboard-settings-logout'>
-              <p>Logout</p>
-            </div>
-          </div>
-        </div> */}
+
 
 
         <div className="chat-dashboard-account">
+          {/* <div className='chat-dashboard-settings'>
+            <div className='chat-dashboard-settings-container'>
+              <div className='chat-dashboard-settings-theme'>
+                  <p>Theme</p>
+                  <div className='settings-theme-indicator'>
+                    <span className='settings-theme-indicator-light'></span>
+                    <span className='settings-theme-indicator-dark'></span>
+                  </div>
+              </div>
+              <div className='chat-dashboard-settings-logout'>
+                Logout
+              </div>
+            </div>
+          </div> */}
           <div className='chat-dashboard-account-container'>
 
             <div className='chat-dashboard-account-contents'>
