@@ -10,7 +10,7 @@ import { ref, set, get, serverTimestamp, update } from 'firebase/database';
 import Image from 'next/image';
 import copy from '@public/assets/images/dashboard/copy.svg';
 import refresh from '@public/assets/images/dashboard/refresh.svg';
-import arrow from '@public/assets/images/ai/arrow-up.svg';
+import { IoMdArrowUp } from "react-icons/io";
 
 const Chatbot = ({ chatId }) => {
     const [messages, setMessages] = useState([]);
@@ -229,7 +229,7 @@ const Chatbot = ({ chatId }) => {
                             placeholder="Type your message..."
                         />
                         <div className={`trafy-chat-send-btn ${loading ? 'change' : ''}`} onClick={sendMessage}>
-                            <Image src={arrow} alt='arrow'/>
+                         <IoMdArrowUp style={{fontSize:"24px",fontWeight:"400", color:"var(--white-black)"}}/>
                         </div>
 
                     </div>

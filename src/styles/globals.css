@@ -14,19 +14,40 @@
     --p-white:#d1d1d1;
     --box-border:#B2B2B2;
 
+--chat-bg:#ffffff;
+--dashboard-bg:#f5f5f5;
+--dashboard-hover-bg:#efefef;
+--dashboard-click-bg:#dfdfdf;
+--chat-button-bg:#1B1C1D;
+--chat-button-hover-bg:#b2b2b2;
+--h-color:#000000;
+--p-color:#424242;
+--border-color:#dfdfdf;
+--black-white:#1B1C1D;
+--white-black:#ffffff;
+--user-chat:#f5f5f5;
+--box-shadow:#c0c0c0bf;
+--chat-border:#dfdfdf;
+
+
 
   }
 
   .dark {
-   --trafy-grey:#2C2C2C;
-    --trafy-black:#ffffff;
-    --trafy-white:#000000;
-    --h-black:#ffffff;
-    --p-black:#d1d1d1;
-    --h-white:#000000;
-    --p-white:#424242;
-    --box-border:#767676;
-
+    --chat-bg:#252525;
+    --dashboard-bg:#1c1c1c;
+    --dashboard-hover-bg:#292929;
+    --dashboard-click-bg:#2e2e2e;
+    --chat-button-bg:#ececec;
+    --chat-button-hover-bg:#646464;
+    --h-color:#dbdbdb;
+    --p-color:#cdcdcd;
+    --border-color:#333333;
+    --black-white:#ececec;
+    --white-black:#1c1c1c;
+    --user-chat:#363636;
+    --box-shadow:#1f1f1fbf;
+    --chat-border:#404040;
   }
   
 
@@ -45,20 +66,9 @@
       overflow-y: scroll;
       overflow: hidden;
       height: 100%; 
+      background-color: var(--chat-bg);
     }
 
-    .theme-change-button .light-theme {
-      background-color: #f1f1f1;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    }
-    
-    .theme-change-button .dark-theme {
-      background-color: #333;
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-    }
-    
-    .theme-change-button .active {
-      border-color: var(--text-color);
-    }
+ 
 
  

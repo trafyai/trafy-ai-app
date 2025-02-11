@@ -23,7 +23,7 @@
   }
   .trafy-chat-dashboard-menu-icon{
     font-size: 24px;
-    color:var(--trafy-black);
+    color:var(--black-white);
   }
 }
 
@@ -65,7 +65,7 @@
 
 .tc-msgs.user {
   align-self: flex-end; 
-  background-color: var(--trafy-grey);
+  background-color: var(--user-chat);
   width: max-content;
   max-width: 75%;
 }
@@ -92,14 +92,14 @@ padding-bottom: 12px;
 .tc-msgs h5{
   font-size: 20px;
   font-family: var(--h-font);
-  color: var(--h-black);
+  color: var(--h-color);
   font-weight: 600;
   line-height: 140%;
 }
 .tc-msgs p{
   font-size: 16px;
   font-family: var(--h-font);
-  color: var(--p-black);
+  color: var(--p-color);
   font-weight: 400;
   line-height: 160%;
   margin: 0.5rem 0px;
@@ -107,7 +107,7 @@ padding-bottom: 12px;
 .tc-msgs p strong{
   font-size: 16px;
   font-family: var(--h-font);
-  color: var(--h-black);
+  color: var(--h-color);
   font-weight: 600;
   line-height: 140%;
   padding-top: 1rem;
@@ -120,22 +120,25 @@ padding-bottom: 12px;
   margin: 0.5rem 0rem;
   font-size: 16px;
   font-family: var(--h-font);
-  color: var(--p-black);
+  color: var(--p-color);
   font-weight: 400;
   line-height: 140%;
 }
 .tc-msgs li strong{
   font-size: 16px;
   font-family: var(--h-font);
-  color: var(--h-black);
+  color: var(--h-color);
   font-weight: 500;
   line-height: 140%;
+}
+code{
+  color: var(--p-color);
 }
 .trafy-chat-prompt{
   width: 100%; 
   position: sticky; 
   bottom: 0;
-  background-color: var(--trafy-white);
+  background-color: var(--chat-bg);
   display: flex;
   justify-content: center;
   padding: 10px 0;
@@ -144,9 +147,9 @@ padding-bottom: 12px;
   width: 70%;
   display: flex;
   align-items: center;
-  border: 1px solid #dfdfdf;
+  border: 1px solid var(--chat-border);
   border-radius: 12px;
-  background-color: var(--trafy-white);
+  background-color: var(--chat-bg);
   margin-bottom: 12px;
 
 }
@@ -155,11 +158,11 @@ padding-bottom: 12px;
   padding: 14px;
   border: none;
   border-radius: 16px;
-  background-color: var(--trafy-white);
+  background-color: var(--chat-bg);
   font-size: 16px;
   font-family: var(--h-font);
   font-weight: 400;
-  color: var(--p-black);
+  color: var(--p-color);
 }
 .trafy-chat-prompt-input input:focus{
   outline: none;
@@ -168,25 +171,25 @@ padding-bottom: 12px;
   width: 36px;
   height: 34px;
   border-radius: 32%;
-  background-color: var(--trafy-black);
+  background-color: var(--chat-button-bg);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
 }
 .trafy-chat-send-btn.change{
-  background-color: var(--box-border);
+  background-color: var(--chat-button-hover-bg);
 }
 .trafy-chat-prompt-input button{
   padding: 14px 42px;
   height: auto;
   border: none;
   border-radius: 16px;
-  background-color: var(--h-black);
+  background-color: var(--h-color);
   font-size: 16px;
   font-family: var(--h-font);
   font-weight: 300;
-  color: var(--h-white);
+  color: var(--chat-bg);
 }
 
 @media only screen and (max-width:1300px){

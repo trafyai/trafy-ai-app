@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    background-color: var(--trafy-grey); /* Adjust background if needed */
+    background-color: var(--dashboard-bg); /* Adjust background if needed */
 
 }
 .chat-dashboard-logo{
@@ -33,18 +33,18 @@ display: flex;
 gap: 0.3rem;
 align-items: center;
 width: max-content;
-background-color: #efefef;
+background-color: var(--dashboard-hover-bg);
 border-radius: 6px;
 font-size: 14px;
 font-family: var(--h-font);
-color: var(--p-black);
+color: var(--p-color);
 font-weight: 400;
 padding: 9px 12px;
 border-radius: 8px;
 }
 .chat-dashboard-new-chat a:hover{
-    background-color: #e9e9e9;
-    color: var(--h-black);
+    background-color: var(--dashboard-click-bg);
+    color: var(--h-color);
 }
 .chat-dashboard-recents {
     padding: 20px;
@@ -81,7 +81,7 @@ border-radius: 8px;
     padding-left: 8px;
     font-size: 15px;
     font-family: var(--h-font);
-    color: var(--h-black);
+    color: var(--h-color);
     font-weight: 500;
 }
  .chat-dashboard-recents-contents{
@@ -91,21 +91,21 @@ border-radius: 8px;
 .chat-dashboard-recents a{
     font-size: 14px;
     font-family: var(--h-font);
-    color: var(--h-black);
+    color: var(--h-color);
     font-weight: 400;
     padding: 8px 8px;
     border-radius: 8px;
 }
 .chat-dashboard-recents a:hover{
-    background-color: #efefef;
+    background-color: var(--dashboard-hover-bg);
 }
 .chat-dashboard-recents a.active{
-    background-color: #dfdfdf;
+    background-color: var(--dashboard-click-bg);
 }
 .char-dashboard-view-more-btn{
     font-size: 13px;
     font-family: var(--h-font);
-    color: var(--p-black);
+    color: var(--p-color);
     font-weight: 400;
     padding: 0px 4px;
     border-radius: 8px;
@@ -126,7 +126,7 @@ border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #dfdfdf;
+    border: 1px solid var(--border-color);
     gap: 0.5rem;
 }
 .chat-dashboard-account-contents{
@@ -137,10 +137,10 @@ border-radius: 8px;
 .chat-dashboard-account-profile{
     width: 32px;
     height: 32px;
-    background-color: var(--trafy-black);
+    background-color: var(--black-white);
     font-size: 14px;
     font-family: var(--h-font);
-    color: var(--h-white);
+    color: var(--white-black);
     font-weight: 400;
     display: flex;
     justify-content: center;
@@ -150,7 +150,7 @@ border-radius: 8px;
 .chat-dashboard-account-email{
     font-size: 14px;
     font-family: var(--h-font);
-    color: var(--h-black);
+    color: var(--h-color);
     font-weight: 400;
     white-space: nowrap;         /* Prevent text from wrapping */
   overflow: hidden;            /* Hide overflowed content */
@@ -175,7 +175,7 @@ border-radius: 8px;
 .chat-dashboard-settings-container{
     width: 100%;
     padding: 10px;
-    border: 1px solid #dfdfdf;
+    border: 1px solid var(--border-color);
     background-color: inherit;
     border-radius: 8px;
     display: flex;
@@ -192,19 +192,63 @@ border-radius: 8px;
 .chat-dashboard-settings-theme p{
     font-size: 15px;
     font-family: var(--h-font);
-    color: var(--h-black);
+    color: var(--h-color);
     font-weight: 400;
 }
+/* .settings-theme-indicator{
+   width: 40px;
+   height: 23px;
+   border: 1px solid var(--border-color);
+   border-radius: 12px;
+   padding: 2px; 
+   display: flex;
+} */
+.settings-theme-indicator {
+    width: 40px;
+    height: 23px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2px; 
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px;
+}
+.settings-theme-indicator-light {
+    width: 50%;
+    height: 100%;
+    background-color: var(--black-white);
+    border-radius: 50%;
+    visibility: hidden;/* Hide by default */
+}
+
+.settings-theme-indicator-dark {
+    width: 50%;
+    height: 100%;
+    background-color: var(--black-white);
+    border-radius: 50%;
+    visibility: hidden; /* Hide by default */
+}
+
+.settings-theme-indicator-light.active {
+    visibility: visible; /* Show when active */
+}
+
+.settings-theme-indicator-dark.active {
+    visibility: visible; /* Show when active */
+}
+
 .chat-dashboard-settings-logout{
     padding: 5px;
     font-size: 15px;
     font-family: var(--h-font);
-    color: var(--h-black);
+    color: var(--h-color);
     font-weight: 400;
     border-radius: 4px;
 }
 .chat-dashboard-settings-logout:hover{
-    background-color: #e9e9e9;
+    background-color: var(--dashboard-click-bg);
 }
 
 
@@ -214,6 +258,6 @@ border-radius: 8px;
         z-index: 1000;
         top: 0;
         left: 0px;
-        box-shadow: 300px 0px 0px 200px #c0c0c0bf;
+        box-shadow: 300px 0px 0px 200px var(--box-shadow);
     }
 }
