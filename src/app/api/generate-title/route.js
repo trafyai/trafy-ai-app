@@ -121,5 +121,5 @@ async function generateTitle(instruction, recentMessages, model) {
     max_tokens: 15, // Limit response length to ensure concise title
   });
 
-  return chatCompletion.choices[0]?.message?.content?.trim() || 'Untitled Chat';
+  return chatCompletion.choices[0]?.message?.content?.trim() || 'New Chat';
 }

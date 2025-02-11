@@ -1,3 +1,32 @@
+.trafy-ai-component{
+  display: flex;
+}
+.trafy-chat-dashboard-hamburger{
+  display: none;
+}
+
+
+@media only screen and (max-width:800px){
+  .trafy-ai-component{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  .trafy-chat-dashboard-desktop{
+    display: none;
+  }
+  .trafy-chat-dashboard-hamburger{
+    display: block;
+    padding: 16px;
+    height: max-content;
+  }
+  .trafy-chat-dashboard-menu-icon{
+    font-size: 24px;
+    color:var(--trafy-black);
+  }
+}
+
 .trafy-chat{
   flex: 1; 
   display: flex;
@@ -116,7 +145,7 @@ padding-bottom: 12px;
   display: flex;
   align-items: center;
   border: 1px solid #dfdfdf;
-  border-radius: 16px;
+  border-radius: 12px;
   background-color: var(--trafy-white);
   margin-bottom: 12px;
 

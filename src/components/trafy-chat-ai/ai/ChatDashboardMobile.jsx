@@ -9,13 +9,10 @@ import Image from 'next/image';
 import logo from '@public/assets/images/navbar/trafy-black-logo.png';
 import newChat from '@public/assets/images/dashboard/new-chat.svg';
 import arrow from '@public/assets/images/dashboard/arrow.svg';
-import { MdClose } from "react-icons/md";
-import { IoIosArrowDown } from "react-icons/io";
-
 
 const INITIAL_VISIBLE_CHATS = 8; 
 
-const ChatDashboard = ({ menuOpen, setMenuOpen }) => {
+const ChatDashboardMobile = ({ menuOpen, setMenuOpen }) => {
   const [recentChats, setRecentChats] = useState([]);
   const [visibleChats, setVisibleChats] = useState(INITIAL_VISIBLE_CHATS);
   const [loading, setLoading] = useState(true);
@@ -77,7 +74,7 @@ const ChatDashboard = ({ menuOpen, setMenuOpen }) => {
       <div className="chat-dashboard-container">
         <div className='chat-dashboard-logo'>
             <Image src={logo} alt='trafy logo' />
-            {menuOpen && <MdClose onClick={() => setMenuOpen(false)} style={{fontSize:"20px",color:"var(--trafy-gray)"}}/>}
+            {menuOpen && <p onClick={() => setMenuOpen(false)}>close</p>}
             </div>
         <div className="chat-dashboard-new-chat">
           <Link href='/'>
@@ -107,37 +104,19 @@ const ChatDashboard = ({ menuOpen, setMenuOpen }) => {
           </div>
         )}
         {/* User Account Section */}
-
-        {/* <div className='chat-dashboard-settings'>
-          <div className='chat-dashboard-settings-container'>
-            <div className='chat-dashboard-settings-theme'>
-                <p>Theme</p>
-                <div className='settings-theme-indicator'>
-                  <span className='settings-theme-indicator-light'></span>
-                  <span className='settings-theme-indicator-dark'></span>
-                </div>
-            </div>
-            <div className='chat-dashboard-settings-logout'>
-              <p>Logout</p>
-            </div>
-          </div>
-        </div> */}
-
-
         <div className="chat-dashboard-account">
           <div className='chat-dashboard-account-container'>
-
             <div className='chat-dashboard-account-contents'>
+              {/* Display First Letter of Email */}
               <div className='chat-dashboard-account-profile'>
                 {userEmail ? userEmail.charAt(0).toUpperCase() : "?"}
               </div>
+              {/* Display Full Email */}
               <div className='chat-dashboard-account-email'>
                 {userEmail || "Not Logged In"}
               </div>
-            </div> 
- 
-            <IoIosArrowDown style={{fontSize:"16px",color:"var(--box-border)"}}/>
-
+              
+            </div>  
           </div>
         </div>
       </div>
@@ -145,4 +124,4 @@ const ChatDashboard = ({ menuOpen, setMenuOpen }) => {
   );
 };
 
-export default ChatDashboard;
+export default ChatDashboardMobile;

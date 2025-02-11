@@ -4,6 +4,7 @@ import { useRouter, usePathname } from "next/navigation";
 import ChatDashboard from "@components/trafy-chat-ai/ai/ChatDashboard";
 import Chatbot from "@components/trafy-chat-ai/ai/ChatAi";
 import { UserAuth } from "@context/AuthContext";
+import TrafyAi from "@components/trafy-chat-ai/TrafyAi";
 
 const ChatPage = () => {
     const { user } = UserAuth();
@@ -23,10 +24,11 @@ const ChatPage = () => {
     if (!validChat) return <p>Loading chat...</p>;
 
     return (
-        <div style={{display:"flex"}}>
-            <ChatDashboard chatId={chatId} />
-            <Chatbot chatId={chatId} /> {/* Pass chatId to chatbot */}
-        </div>
+        // <div style={{display:"flex"}}>
+        //     <ChatDashboard chatId={chatId} />
+        //     <Chatbot chatId={chatId} /> {/* Pass chatId to chatbot */}
+        // </div>
+        <TrafyAi chatId={chatId}/>
     );
 };
 

@@ -22,7 +22,6 @@ const Chatbot = ({ chatId }) => {
     const { user } = UserAuth();
     const markdown = new Marked();
 
-    // Fetch messages and title from Firebase
     useEffect(() => {
         const fetchChatData = async () => {
             if (!chatId || !user) return;
@@ -160,56 +159,17 @@ const Chatbot = ({ chatId }) => {
         const date = new Date(timestamp);
         return date.toLocaleTimeString();
     };
-    // const refreshMessage = async (index) => {
-    //     if (!messages.length || !user) return;
-    
-    //     // Find the last user message before the bot message at `index`
-    //     const userMessageIndex = messages.slice(0, index).reverse().findIndex(msg => msg.role === "user");
-    //     if (userMessageIndex === -1) return; // No user message found before the bot message
-    
-    //     const actualUserMessageIndex = index - userMessageIndex - 1;
-    //     const userMessage = messages[actualUserMessageIndex];
-    
-    //     // Remove all messages after the selected bot message
-    //     const updatedMessages = messages.slice(0, actualUserMessageIndex + 1);
-    
-    //     setMessages(updatedMessages);
-    
-    //     try {
-    //         const response = await fetch('/api/chat', {
-    //             method: 'POST',
-    //             headers: { 'Content-Type': 'application/json' },
-    //             body: JSON.stringify({ message: userMessage.content }),
-    //         });
-    
-    //         const data = await response.json();
-    //         const refreshedBotMessage = {
-    //             role: "bot",
-    //             content: data.response || "Something went wrong.",
-    //             timestamp: serverTimestamp(),
-    //         };
-    
-    //         setMessages([...updatedMessages, refreshedBotMessage]);
-    //         await saveChatToDatabase(chatId, [...updatedMessages, refreshedBotMessage]);
-    //         await generateChatTitle(chatId, [...updatedMessages, refreshedBotMessage]);
 
-    //     } catch (error) {
-    //         console.error("Error refreshing content:", error);
-    //         setMessages([...updatedMessages, { role: "bot", content: "Error refreshing message." }]);
-    //     }
-    // };
     const refreshMessage = async (index) => {
         if (!messages.length || !user) return;
-        setLoading(true); // Start loading state
+        setLoading(true); 
 
-        // Find the last user message before the bot message at `index`
         const userMessageIndex = messages.slice(0, index).reverse().findIndex(msg => msg.role === "user");
         if (userMessageIndex === -1) return; // No user message found before the bot message
     
         const actualUserMessageIndex = index - userMessageIndex - 1;
         const userMessage = messages[actualUserMessageIndex];
     
-        // Remove all messages after the selected bot message
         const updatedMessages = messages.slice(0, actualUserMessageIndex + 1);
         setMessages(updatedMessages);
     
@@ -227,7 +187,6 @@ const Chatbot = ({ chatId }) => {
                 timestamp: serverTimestamp(),
             };
     
-            // Use simulateTyping instead of directly setting the message
             simulateTyping(refreshedBotMessage.content, refreshedBotMessage);
     
             await saveChatToDatabase(chatId, [...updatedMessages, refreshedBotMessage]);
