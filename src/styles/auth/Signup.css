@@ -62,6 +62,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.2rem;
+  color: #3f3f3f;
 }
 /* .email .MuiOutlinedInput-root {
   &.Mui-error {
